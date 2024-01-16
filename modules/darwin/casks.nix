@@ -1,8 +1,12 @@
 _:
 
 [
+  # Development Tools
+  "visual-studio-code"
+
   # Communication Tools
   "discord"
+  "slack"
 
   # Browsers
   "google-chrome"
@@ -10,21 +14,20 @@ _:
   # Productivity Tools
   "karabiner-elements"
   "raycast"
+  "obsidian"
 
   # Entertainment Tools
   "spotify"
+  "steam"
 
   /*
-  # Development Tools
   "homebrew/cask/docker"
   "insomnia"
   "ngrok"
   "postico"
-  "visual-studio-code"
 
   "loom"
   "notion"
-  "slack"
   "telegram"
   "zoom"
 
@@ -33,7 +36,6 @@ _:
   "syncthing"
 
   # Entertainment Tools
-  "steam"
   "vlc"
 
   "asana"

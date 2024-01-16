@@ -2,10 +2,14 @@
 
 with pkgs; [
   alacritty
+  jq
   ripgrep
   tmux
   meslo-lgs-nf
   go
+  postgresql
+  bun
+  golangci-lint
   # # General packages for development and system management
   # act
   # aspell

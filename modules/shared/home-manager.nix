@@ -6,6 +6,7 @@
     shellAliases = {
       update = "sh -c 'cd ~/Workspace/nix && git add . && darwin-rebuild switch --flake .' && source ~/.zshrc && sudo yabai --load-sa";
       src = "cd ~/Workspace";
+      ls = "ls -G --color=auto";
     };
     oh-my-zsh = {
       enable = true;
@@ -180,5 +181,11 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+  };
+
+  direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 }
