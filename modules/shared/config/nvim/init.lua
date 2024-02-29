@@ -396,6 +396,23 @@ require('lazy').setup({
       },
     },
   },
+
+  -- TODO: review this when pkl is in treesitter-nvim
+  {
+    "https://github.com/apple/pkl-neovim",
+    lazy = true,
+    event = "BufReadPre *.pkl",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      -- TODO: remove this when pkl folding is disablable
+      vim.api.nvim_create_autocmd("BufWinEnter", {
+        pattern = "*",
+        callback = function()
+          vim.cmd("normal! zR")
+        end
+      })
+    end
+  }
 }, {})
 
 -- [[ Setting options ]]
@@ -584,7 +601,7 @@ vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
-      'bash', 'templ' },
+      'bash', 'templ', 'pkl' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,

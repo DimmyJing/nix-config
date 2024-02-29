@@ -10,6 +10,7 @@ _:
 
   # Browsers
   "google-chrome"
+  "firefox"
 
   # Productivity Tools
   "karabiner-elements"

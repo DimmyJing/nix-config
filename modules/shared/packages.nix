@@ -3,6 +3,7 @@
 with pkgs; [
   alacritty
   jq
+  yq
   ripgrep
   tmux
   meslo-lgs-nf
@@ -10,6 +11,19 @@ with pkgs; [
   postgresql
   bun
   golangci-lint
+  docker
+  fira-code
+  cloudflared
+  ko
+  tailscale
+  kubectl
+  k9s
+  opentofu
+  kubernetes-helm
+  colima
+  supabase-cli
+  p7zip
+  gh
   # # General packages for development and system management
   # act
   # aspell
@@ -40,7 +54,6 @@ with pkgs; [
   # yubikey-manager
 
   # # Cloud-related tools and SDKs
-  # # docker
   # # docker-compose
   # awscli2
   # flyctl

@@ -36,103 +36,105 @@
         };
         size = 20;
       };
-      key_bindings = [
-        {
-	  key = "T";
-	  mods = "Command";
-	  chars = "\\x01c";
-	}
-        {
-	  key = "W";
-	  mods = "Command";
-	  chars = "\\x01&";
-	}
-        {
-	  key = "D";
-	  mods = "Command";
-	  chars = "\\x01%";
-	}
-        {
-	  key = "D";
-	  mods = "Command|Shift";
-	  chars = "\\x01\"";
-	}
-        {
-	  key = "Key1";
-	  mods = "Command";
-	  chars = "\\x011";
-	}
-        {
-	  key = "Key2";
-	  mods = "Command";
-	  chars = "\\x012";
-	}
-        {
-	  key = "Key3";
-	  mods = "Command";
-	  chars = "\\x013";
-	}
-        {
-	  key = "Key4";
-	  mods = "Command";
-	  chars = "\\x014";
-	}
-        {
-	  key = "Key5";
-	  mods = "Command";
-	  chars = "\\x015";
-	}
-        {
-	  key = "Key6";
-	  mods = "Command";
-	  chars = "\\x016";
-	}
-        {
-	  key = "Key7";
-	  mods = "Command";
-	  chars = "\\x017";
-	}
-        {
-	  key = "Key8";
-	  mods = "Command";
-	  chars = "\\x018";
-	}
-        {
-	  key = "Key9";
-	  mods = "Command";
-	  chars = "\\x019";
-	}
-        {
-	  key = "H";
-	  mods = "Control";
-	  chars = "\\x01h";
-	}
-        {
-	  key = "J";
-	  mods = "Control";
-	  chars = "\\x01j";
-	}
-        {
-	  key = "K";
-	  mods = "Control";
-	  chars = "\\x01k";
-	}
-        {
-	  key = "L";
-	  mods = "Control";
-	  chars = "\\x01l";
-	}
-        {
-	  key = "Tab";
-	  mods = "Control";
-	  chars = "\\x01n";
-	}
-        {
-	  key = "Tab";
-	  mods = "Control|Shift";
-	  chars = "\\x01p";
-	}
-      ];
+      keyboard = {
+	bindings = [
+	  {
+	    key = "T";
+	    mods = "Command";
+	    chars = "\\u0001c";
+	  }
+	  {
+	    key = "W";
+	    mods = "Command";
+	    chars = "\\u0001&";
+	  }
+	  {
+	    key = "D";
+	    mods = "Command";
+	    chars = "\\u0001%";
+	  }
+	  {
+	    key = "D";
+	    mods = "Command|Shift";
+	    chars = "\\u0001\"";
+	  }
+	  {
+	    key = "Key1";
+	    mods = "Command";
+	    chars = "\\u00011";
+	  }
+	  {
+	    key = "Key2";
+	    mods = "Command";
+	    chars = "\\u00012";
+	  }
+	  {
+	    key = "Key3";
+	    mods = "Command";
+	    chars = "\\u00013";
+	  }
+	  {
+	    key = "Key4";
+	    mods = "Command";
+	    chars = "\\u00014";
+	  }
+	  {
+	    key = "Key5";
+	    mods = "Command";
+	    chars = "\\u00015";
+	  }
+	  {
+	    key = "Key6";
+	    mods = "Command";
+	    chars = "\\u00016";
+	  }
+	  {
+	    key = "Key7";
+	    mods = "Command";
+	    chars = "\\u00017";
+	  }
+	  {
+	    key = "Key8";
+	    mods = "Command";
+	    chars = "\\u00018";
+	  }
+	  {
+	    key = "Key9";
+	    mods = "Command";
+	    chars = "\\u00019";
+	  }
+	  {
+	    key = "H";
+	    mods = "Control";
+	    chars = "\\u0001h";
+	  }
+	  {
+	    key = "J";
+	    mods = "Control";
+	    chars = "\\u0001j";
+	  }
+	  {
+	    key = "K";
+	    mods = "Control";
+	    chars = "\\u0001k";
+	  }
+	  {
+	    key = "L";
+	    mods = "Control";
+	    chars = "\\u0001l";
+	  }
+	  {
+	    key = "Tab";
+	    mods = "Control";
+	    chars = "\\u0001n";
+	  }
+	  {
+	    key = "Tab";
+	    mods = "Control|Shift";
+	    chars = "\\u0001p";
+	  }
+	];
+      };
     };
   };
 
@@ -187,5 +189,14 @@
     enable = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
+  };
+
+  atuin = {
+    enable = true;
+    enableZshIntegration = true;
+    # settings = {
+      # keymap_mode = "vim";
+      # enter_accept = true;
+    # };
   };
 }
