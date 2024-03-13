@@ -8,6 +8,30 @@
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
 
+  # Create datadir for PostgreSQL
+  system.activationScripts.preActivation = {
+    enable = true;
+    text = ''
+      if [ ! -d "/var/lib/postgresql/" ]; then
+        echo "creating PostgreSQL data directory..."
+        sudo mkdir -m 750 -p /var/lib/postgresql/
+        chown -R jimmy:staff /var/lib/postgresql/
+      fi
+    '';
+  };
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql;
+    dataDir = "/var/lib/postgresql";
+    initdbArgs = ["--username=jimmy" "--pgdata=/var/lib/postgresql" "--auth=trust" "--no-locale" "--encoding=UTF8"];
+  };
+
+  launchd.user.agents.postgresql.serviceConfig = {
+    StandardErrorPath = "/tmp/postgres.error.log";
+    StandardOutPath = "/tmp/postgres.log";
+  };
+
   # Setup user, packages, programs
   nix = {
     package = pkgs.nixUnstable;

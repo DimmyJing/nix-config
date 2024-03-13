@@ -24,6 +24,10 @@ with pkgs; [
   supabase-cli
   p7zip
   gh
+  elixir
+  imagemagick
+  gleam
+  erlang
   # # General packages for development and system management
   # act
   # aspell
@@ -68,7 +72,6 @@ with pkgs; [
 
   # # Media-related packages
   # emacs-all-the-icons-fonts
-  # imagemagick
   # dejavu_fonts
   # ffmpeg
   # fd
