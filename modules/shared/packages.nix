@@ -28,6 +28,8 @@ with pkgs; [
   imagemagick
   gleam
   erlang
+  ruby
+  python3
   # # General packages for development and system management
   # act
   # aspell

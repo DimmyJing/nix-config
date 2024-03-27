@@ -198,6 +198,9 @@ vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["+d]])
 
+-- Keymap for navigating buffers
+vim.keymap.set('n', '<backspace>', '<c-^>')
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -444,7 +447,7 @@ require('lazy').setup({
         config = function()
           require('neodev').setup {
             override = function(root_dir, library)
-              if root_dir:find("/nix/", 1, true) ~= nil then
+              if root_dir:find('/nix/', 1, true) ~= nil then
                 library.enabled = true
                 library.plugins = true
               end
@@ -622,12 +625,14 @@ require('lazy').setup({
             'typescript',
             'heex',
             'elixir',
+            'svelte',
           },
           init_options = {
             userLanguages = {
               templ = 'html',
               elixir = 'phoenix-heex',
               heex = 'phoenix-heex',
+              svelte = 'html',
             },
           },
           settings = {
@@ -638,6 +643,7 @@ require('lazy').setup({
               heex = 'html',
               eelixir = 'html',
               elixir = 'html',
+              svelte = 'html',
             },
           },
         },
@@ -664,6 +670,16 @@ require('lazy').setup({
             },
           },
         },
+
+        svelte = {},
+
+        ruby_ls = {},
+
+        rubocop = {},
+
+        black = {},
+
+        isort = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -717,7 +733,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
@@ -937,6 +953,9 @@ require('lazy').setup({
         'elixir',
         'heex',
         'gleam',
+        'svelte',
+        'ruby',
+        'css',
       },
       -- Autoinstall languages that are not installed
       auto_install = false,
@@ -982,9 +1001,6 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
-
-  -- Git gutter
-  'airblade/vim-gitgutter',
 
   -- provide json schemas
   'b0o/schemastore.nvim',
@@ -1047,7 +1063,7 @@ require('lazy').setup({
 
   {
     'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v3.x',
+    version = '*',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
@@ -1058,6 +1074,7 @@ require('lazy').setup({
         enable_git_status = true,
         enable_diagnostics = true,
         window = {
+          position = 'right',
           width = 40,
           mappings = {
             -- this mapping will close the neotree window if a file is selected
@@ -1083,7 +1100,8 @@ require('lazy').setup({
           },
         },
       }
-      vim.keymap.set('n', '<leader>n', '<Cmd>Neotree reveal<CR>', { desc = 'Toggle [N]eoTree' })
+      vim.keymap.set('n', '<leader>n', '<Cmd>Neotree filesystem reveal right toggle<CR>', { desc = 'Toggle [N]eoTree' })
+      vim.keymap.set('n', '<leader>b', '<Cmd>Neotree buffers reveal right toggle<CR>', { desc = 'Toggle [N]eoTree' })
     end,
   },
 
@@ -1142,6 +1160,56 @@ require('lazy').setup({
         on_save_enabled = true,
         on_save_pattern = { '*.html', '*.js', '*.jsx', '*.tsx', '*.twig', '*.hbs', '*.php', '*.heex', '*.astro', '*.ex' },
       }
+    end,
+  },
+
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+    lazy = false,
+  },
+
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      local harpoon = require 'harpoon'
+      ---@diagnostic disable-next-line: missing-parameter
+      harpoon:setup {
+        settings = {
+          sync_on_ui_close = true,
+          save_on_toggle = true,
+        },
+      }
+
+      vim.keymap.set('n', '<leader>a', function()
+        harpoon:list():append()
+      end)
+      vim.keymap.set('n', '<c-e>', function()
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end)
+
+      vim.keymap.set('n', '<leader>h', function()
+        harpoon:list():select(1)
+      end)
+      vim.keymap.set('n', '<leader>j', function()
+        harpoon:list():select(2)
+      end)
+      vim.keymap.set('n', '<leader>k', function()
+        harpoon:list():select(3)
+      end)
+      vim.keymap.set('n', '<leader>l', function()
+        harpoon:list():select(4)
+      end)
+
+      -- Toggle previous & next buffers stored within Harpoon list
+      vim.keymap.set('n', '<C-S-P>', function()
+        harpoon:list():prev()
+      end)
+      vim.keymap.set('n', '<C-S-N>', function()
+        harpoon:list():next()
+      end)
     end,
   },
 }, {

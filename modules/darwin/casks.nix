@@ -3,6 +3,7 @@ _:
 [
   # Development Tools
   "visual-studio-code"
+  "zed"
 
   # Communication Tools
   "discord"

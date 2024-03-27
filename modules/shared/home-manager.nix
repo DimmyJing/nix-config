@@ -24,6 +24,9 @@
         file = "p10k.zsh";
       }
     ];
+    initExtra = ''
+      export PATH="$HOME/.local/share/gem/ruby/3.1.0/bin:$PATH"	
+    '';
   };
 
   alacritty = {
@@ -41,97 +44,97 @@
 	  {
 	    key = "T";
 	    mods = "Command";
-	    chars = "\\u0001c";
+	    chars = "\\u0002c";
 	  }
 	  {
 	    key = "W";
 	    mods = "Command";
-	    chars = "\\u0001&";
+	    chars = "\\u0002&";
 	  }
 	  {
 	    key = "D";
 	    mods = "Command";
-	    chars = "\\u0001%";
+	    chars = "\\u0002%";
 	  }
 	  {
 	    key = "D";
 	    mods = "Command|Shift";
-	    chars = "\\u0001\"";
+	    chars = "\\u0002\"";
 	  }
 	  {
 	    key = "Key1";
 	    mods = "Command";
-	    chars = "\\u00011";
+	    chars = "\\u00021";
 	  }
 	  {
 	    key = "Key2";
 	    mods = "Command";
-	    chars = "\\u00012";
+	    chars = "\\u00022";
 	  }
 	  {
 	    key = "Key3";
 	    mods = "Command";
-	    chars = "\\u00013";
+	    chars = "\\u00023";
 	  }
 	  {
 	    key = "Key4";
 	    mods = "Command";
-	    chars = "\\u00014";
+	    chars = "\\u00024";
 	  }
 	  {
 	    key = "Key5";
 	    mods = "Command";
-	    chars = "\\u00015";
+	    chars = "\\u00025";
 	  }
 	  {
 	    key = "Key6";
 	    mods = "Command";
-	    chars = "\\u00016";
+	    chars = "\\u00026";
 	  }
 	  {
 	    key = "Key7";
 	    mods = "Command";
-	    chars = "\\u00017";
+	    chars = "\\u00027";
 	  }
 	  {
 	    key = "Key8";
 	    mods = "Command";
-	    chars = "\\u00018";
+	    chars = "\\u00028";
 	  }
 	  {
 	    key = "Key9";
 	    mods = "Command";
-	    chars = "\\u00019";
+	    chars = "\\u00029";
 	  }
 	  {
 	    key = "H";
 	    mods = "Control";
-	    chars = "\\u0001h";
+	    chars = "\\u0002h";
 	  }
 	  {
 	    key = "J";
 	    mods = "Control";
-	    chars = "\\u0001j";
+	    chars = "\\u0002j";
 	  }
 	  {
 	    key = "K";
 	    mods = "Control";
-	    chars = "\\u0001k";
+	    chars = "\\u0002k";
 	  }
 	  {
 	    key = "L";
 	    mods = "Control";
-	    chars = "\\u0001l";
+	    chars = "\\u0002l";
 	  }
 	  {
 	    key = "Tab";
 	    mods = "Control";
-	    chars = "\\u0001n";
+	    chars = "\\u0002n";
 	  }
 	  {
 	    key = "Tab";
 	    mods = "Control|Shift";
-	    chars = "\\u0001p";
+	    chars = "\\u0002p";
 	  }
 	];
       };
@@ -152,7 +155,6 @@
         '';
       }
     ];
-    prefix = "C-a";
     baseIndex = 1;
     mouse = true;
     historyLimit = 50000;
