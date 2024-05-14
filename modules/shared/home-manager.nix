@@ -25,7 +25,8 @@
       }
     ];
     initExtra = ''
-      export PATH="$HOME/.local/share/gem/ruby/3.1.0/bin:$PATH"	
+      export PATH="$HOME/.local/share/gem/ruby/3.1.0/bin:$PATH"
+      export PATH="$HOME/go/bin:$PATH"
     '';
   };
 

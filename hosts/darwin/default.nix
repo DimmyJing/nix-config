@@ -22,9 +22,15 @@
 
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql;
     dataDir = "/var/lib/postgresql";
+    authentication = pkgs.lib.mkOverride 10 ''
+      local all all trust
+      host all all 127.0.0.1/32 trust
+      host all all ::1/128 trust
+    '';
     initdbArgs = ["--username=jimmy" "--pgdata=/var/lib/postgresql" "--auth=trust" "--no-locale" "--encoding=UTF8"];
+    extraPlugins = [ (pkgs.postgresql_16.pkgs.pgvector.override { postgresql = pkgs.postgresql_16; }) ];
+    package = pkgs.postgresql_16;
   };
 
   launchd.user.agents.postgresql.serviceConfig = {
@@ -49,6 +55,8 @@
 
   # Enable fonts dir
   fonts.fontDir.enable = true;
+
+  security.pam.enableSudoTouchIdAuth = true;
 
   system = {
     stateVersion = 4;

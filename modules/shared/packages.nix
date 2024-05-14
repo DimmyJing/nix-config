@@ -8,7 +8,7 @@ with pkgs; [
   tmux
   meslo-lgs-nf
   go
-  postgresql
+  (postgresql_16.withPackages ( p: with p; [ pgvector ]))
   bun
   golangci-lint
   docker
@@ -29,7 +29,20 @@ with pkgs; [
   gleam
   erlang
   ruby
-  python3
+  (python3.withPackages ( p: with p; [ torch polars nltk pillow matplotlib ]))
+  turso-cli
+  markdownlint-cli
+  jdk17
+  cargo
+  rustc
+  rustfmt
+  swift-format
+  gopls
+  golangci-lint-langserver
+  golangci-lint
+  tree-sitter
+  unixODBC
+  ollama
   # # General packages for development and system management
   # act
   # aspell

@@ -4,6 +4,7 @@ _:
   # Development Tools
   "visual-studio-code"
   "zed"
+  "utm"
 
   # Communication Tools
   "discord"
@@ -21,6 +22,7 @@ _:
   # Entertainment Tools
   "spotify"
   "steam"
+  "prismlauncher"
 
   /*
   "homebrew/cask/docker"
