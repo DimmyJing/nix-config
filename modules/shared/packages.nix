@@ -1,12 +1,18 @@
 { pkgs, ... }:
 
-with pkgs; [
+let
+  update = pkgs.writeShellScriptBin "update" ''
+    sudo yabai --load-sa
+    git -C /Users/jimmy/Workspace/nix add /Users/jimmy/Workspace/nix
+    darwin-rebuild switch --flake /Users/jimmy/Workspace/nix
+    sudo yabai --load-sa
+  '';
+in with pkgs; [
   alacritty
   jq
   yq
   ripgrep
   tmux
-  meslo-lgs-nf
   go
   (postgresql_16.withPackages ( p: with p; [ pgvector ]))
   bun
@@ -29,13 +35,23 @@ with pkgs; [
   gleam
   erlang
   ruby
-  (python3.withPackages ( p: with p; [ torch polars nltk pillow matplotlib ]))
+  (python3.withPackages ( p: with p; [
+    torch
+    polars
+    nltk
+    pillow
+    matplotlib
+    deep-translator
+    openai
+    tqdm
+    boto3
+    psycopg2
+    anthropic
+  ]))
   turso-cli
   markdownlint-cli
   jdk17
-  cargo
-  rustc
-  rustfmt
+  rustup
   swift-format
   gopls
   golangci-lint-langserver
@@ -43,6 +59,12 @@ with pkgs; [
   tree-sitter
   unixODBC
   ollama
+  xray
+  wasmtime
+  tailwindcss
+  emscripten
+  update
+  clickhouse
   # # General packages for development and system management
   # act
   # aspell
@@ -112,8 +134,9 @@ with pkgs; [
   nodePackages.npm
   nodejs
 
-  # ghc
-  # haskellPackages.haskell-language-server
+  ghc
+  haskellPackages.haskell-language-server
+  haskellPackages.cabal-install
   # haskellPackages.ghcup
 
   # # Source code management, Git, GitHub tools

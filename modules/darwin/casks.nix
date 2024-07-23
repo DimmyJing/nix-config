@@ -24,6 +24,8 @@ _:
   "steam"
   "prismlauncher"
 
+  "burp-suite"
+
   /*
   "homebrew/cask/docker"
   "insomnia"
