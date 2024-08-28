@@ -13,6 +13,7 @@ _:
   # Browsers
   "google-chrome"
   "firefox"
+  "arc"
 
   # Productivity Tools
   "karabiner-elements"
@@ -20,11 +21,14 @@ _:
   "obsidian"
 
   # Entertainment Tools
-  "spotify"
+  # "spotify"
   "steam"
   "prismlauncher"
 
   "burp-suite"
+
+  # Utility Tools
+  "backblaze"
 
   /*
   "homebrew/cask/docker"

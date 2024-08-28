@@ -47,10 +47,13 @@ in with pkgs; [
     boto3
     psycopg2
     anthropic
+    clickhouse-connect
+    yt-dlp
+    coverage
   ]))
   turso-cli
   markdownlint-cli
-  jdk17
+  jdk21
   rustup
   swift-format
   gopls
@@ -60,11 +63,15 @@ in with pkgs; [
   unixODBC
   ollama
   xray
-  wasmtime
   tailwindcss
   emscripten
   update
   clickhouse
+  spotify-player
+  btop
+  duckdb
+  unar
+  ffmpeg
   # # General packages for development and system management
   # act
   # aspell
@@ -110,7 +117,6 @@ in with pkgs; [
   # # Media-related packages
   # emacs-all-the-icons-fonts
   # dejavu_fonts
-  # ffmpeg
   # fd
   # font-awesome
   # glow

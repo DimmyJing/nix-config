@@ -228,7 +228,6 @@
       # vim-tmux-navigator
       sensible
       # yank
-      prefix-highlight
       {
         plugin = power-theme;
         extraConfig = ''
@@ -259,6 +258,9 @@
     extraConfig = {
       pull.rebase = true;
       rebase.autoStash = true;
+      rebase.autosquash = true;
+      rerere.enabled = true;
+      init.defaultBranch = "main";
     };
   };
 
