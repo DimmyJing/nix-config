@@ -27,8 +27,11 @@
       enable = true;
     };
     initExtra = ''
-      export PATH="$HOME/.local/share/gem/ruby/3.1.0/bin:$PATH"
+      export PATH="$HOME/.local/share/gem/ruby/3.3.4/bin:$PATH"
+      export GEM_HOME="$HOME/.local/share/gem/ruby/3.3.4"
+      export GEM_PATH="$HOME/.local/share/gem/ruby/3.3.4"
       export PATH="$HOME/go/bin:$PATH"
+      export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
     '';
   };
 

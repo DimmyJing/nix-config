@@ -34,7 +34,9 @@ in with pkgs; [
   imagemagick
   gleam
   erlang
-  ruby
+  (ruby.withPackages ( p: with p; [
+    rails
+  ]))
   (python3.withPackages ( p: with p; [
     torch
     polars
@@ -50,6 +52,8 @@ in with pkgs; [
     clickhouse-connect
     yt-dlp
     coverage
+    pytest
+    pytest-cov
   ]))
   turso-cli
   markdownlint-cli
@@ -72,6 +76,13 @@ in with pkgs; [
   duckdb
   unar
   ffmpeg
+  just
+  pyright
+  glib
+  doctl
+  fluxcd
+  natscli
+  awscli
   # # General packages for development and system management
   # act
   # aspell

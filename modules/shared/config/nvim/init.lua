@@ -707,7 +707,7 @@ require('lazy').setup({
         },
         golangci_lint_ls = {},
         pyright = {},
-        tsserver = {},
+        ts_ls = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
         jsonls = {},
         rust_analyzer = {
@@ -764,8 +764,7 @@ require('lazy').setup({
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
-        -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
+        -- But for many setups, the LSP (`ts_ls`) will work just fine
         --
         lua_ls = {
           -- cmd = {...},
@@ -785,14 +784,15 @@ require('lazy').setup({
           },
         },
         svelte = {},
-        ruby_lsp = {},
-        rubocop = {},
+        -- ruby_lsp = {},
+        -- rubocop = {},
         black = {},
         isort = {},
         gleam = {},
         sourcekit = {},
-        sorbet = {},
-        solargraph = {},
+        -- sorbet = {},
+        -- solargraph = {},
+        volar = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -806,8 +806,7 @@ require('lazy').setup({
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
       local ensure_installed = {
-        'pyright',
-        'tsserver',
+        'ts_ls',
         'jsonls',
         'rust_analyzer',
         'elixirls',
@@ -818,13 +817,10 @@ require('lazy').setup({
         'tailwindcss',
         'lua_ls',
         'svelte',
-        'ruby_lsp',
-        'rubocop',
         'black',
         'isort',
         'stylua', -- Used to format Lua code
-        'sorbet',
-        'solargraph',
+        'vue-language-server',
       }
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -834,7 +830,7 @@ require('lazy').setup({
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
+            -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
