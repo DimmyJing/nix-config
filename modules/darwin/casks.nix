@@ -19,6 +19,9 @@ _:
   "karabiner-elements"
   "raycast"
   "obsidian"
+  "blender"
+  "ghostty"
+  "wine-stable"
 
   # Entertainment Tools
   # "spotify"
@@ -53,4 +56,5 @@ _:
   # AI
   "diffusionbee"
   */
+  "chatgpt"
 ]

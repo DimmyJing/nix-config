@@ -49,17 +49,17 @@ in with pkgs; [
     boto3
     psycopg2
     anthropic
-    clickhouse-connect
     yt-dlp
     coverage
     pytest
     pytest-cov
+    aiohttp
+    pyside6
   ]))
   turso-cli
   markdownlint-cli
   jdk21
   rustup
-  swift-format
   gopls
   golangci-lint-langserver
   golangci-lint
@@ -83,6 +83,18 @@ in with pkgs; [
   fluxcd
   natscli
   awscli
+  deno
+  cue
+  idris2
+  idris2Packages.idris2Lsp
+  uv
+  rclone
+  wasm-bindgen-cli
+  extism-cli
+  wabt
+  esbuild
+  typst
+  wget
   # # General packages for development and system management
   # act
   # aspell
@@ -148,8 +160,7 @@ in with pkgs; [
   # nodePackages.live-server
   # nodePackages.nodemon
   # nodePackages.prettier
-  nodePackages.npm
-  nodejs
+  nodejs_23
 
   ghc
   haskellPackages.haskell-language-server

@@ -6,9 +6,6 @@
   ];
 
   config = {
-    # Auto upgrade nix package and the daemon service.
-    services.nix-daemon.enable = true;
-
     # Create datadir for PostgreSQL
     system.activationScripts.preActivation = {
       enable = true;
@@ -54,10 +51,10 @@
     # Load configuration that is shared across systems
     environment.systemPackages = with pkgs; import ../../modules/shared/packages.nix { inherit pkgs; };
 
-    security.pam.enableSudoTouchIdAuth = true;
+    security.pam.services.sudo_local.touchIdAuth = true;
 
     fonts.packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "Hack" ]; })
+      nerd-fonts.hack
     ];
 
     system = {

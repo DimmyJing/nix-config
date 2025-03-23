@@ -243,11 +243,13 @@
     baseIndex = 1;
     mouse = true;
     historyLimit = 50000;
+    shell = "$SHELL";
     extraConfig = ''
       bind-key h select-pane -L
       bind-key j select-pane -D
       bind-key k select-pane -U
       bind-key l select-pane -R
+      set -g default-command $SHELL
     '';
   };
 
