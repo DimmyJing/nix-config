@@ -854,9 +854,7 @@ require('lazy').setup({
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               -- diagnostics = { disable = { 'missing-fields' } },
-              workspace = {
-                library = { '/Users/jimmy/Workspace/sandbox/computercraft/computercraft.lua' },
-              },
+              -- workspace = {},
             },
           },
         },
